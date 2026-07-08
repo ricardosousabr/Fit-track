@@ -1,9 +1,9 @@
-package com.bodyTraining.fittrack.controller;
+package com.fittrack.fittrack.controller;
 
-import com.bodyTraining.fittrack.dto.request.LoginRequest;
-import com.bodyTraining.fittrack.dto.request.RegisterRequest;
-import com.bodyTraining.fittrack.dto.response.AuthResponse;
-import com.bodyTraining.fittrack.service.AuthService;
+import com.fittrack.fittrack.dto.request.LoginRequest;
+import com.fittrack.fittrack.dto.request.RegisterRequest;
+import com.fittrack.fittrack.dto.response.AuthResponse;
+import com.fittrack.fittrack.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,4 +32,5 @@ public class AuthController {
 		
 		return ResponseEntity.ok(response);
 	}
+	
 }

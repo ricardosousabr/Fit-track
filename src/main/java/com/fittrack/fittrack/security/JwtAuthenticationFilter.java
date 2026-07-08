@@ -1,5 +1,6 @@
-package com.bodyTraining.fittrack.security;
+package com.fittrack.fittrack.security;
 
+import com.fittrack.fittrack.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
