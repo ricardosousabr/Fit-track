@@ -1,9 +1,11 @@
-package com.bodyTraining.fittrack.entity;
+package com.fittrack.fittrack.entity;
 
+import com.fittrack.fittrack.domain.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,8 +21,8 @@ import java.util.List;
 @Table(name = "users")
 public class Users implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 	
 	@Column(nullable = false, unique = true)
 	private String username;
@@ -30,17 +33,24 @@ public class Users implements UserDetails {
 	@Column(nullable = false)
 	private String password;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private Role role;
+	
+	@Column(nullable = false)
+	private Boolean active;
+	
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
+	@UpdateTimestamp
 	@Column(nullable = false)
-	private String role;
-	
+	private LocalDateTime updateAt;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return List.of(new SimpleGrantedAuthority("ROLE_" + this.role));
+		return List.of(new SimpleGrantedAuthority("ROLE_" + this.role.name()));
 	}
 	
 	@Override
@@ -70,6 +80,6 @@ public class Users implements UserDetails {
 	
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return this.active;
 	}
 }
