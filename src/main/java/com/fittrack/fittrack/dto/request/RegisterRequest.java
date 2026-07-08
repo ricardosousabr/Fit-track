@@ -1,10 +1,13 @@
-package com.bodyTraining.fittrack.dto.request;
+package com.fittrack.fittrack.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record LoginRequest(
+public record RegisterRequest(
+		@NotBlank(message = "Username is required")
+		String username,
+		
 		@NotBlank(message = "Email is required")
 		@Email(message = "Email is invalid format")
 		String email,
