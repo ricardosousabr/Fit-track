@@ -1,6 +1,6 @@
-package com.bodyTraining.fittrack.security;
+package com.fittrack.fittrack.security;
 
-import com.bodyTraining.fittrack.repository.UserRepository;
+import com.fittrack.fittrack.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,16 +20,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	private final JwtAuthenticationFilter jwtAuthenticationFilter;
 	private final UserRepository userRepository;
-	
-	public SecurityConfig (JwtAuthenticationFilter jwtAuthenticationFilter, UserRepository userRepository) {
-		this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+
+	public SecurityConfig (UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	
+
 	@Bean
-	public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
 		return http
 				.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(auth -> auth
@@ -38,7 +36,7 @@ public class SecurityConfig {
 				.sessionManagement(session -> session
 						.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider())
-				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 				.build();
 	}
 	
@@ -55,8 +53,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public AuthenticationProvider authenticationProvider() {
-		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-		provider.setUserDetailsService(userDetailsService());
+		DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService());
 		provider.setPasswordEncoder(passwordEncoder());
 		return provider;
 	}
