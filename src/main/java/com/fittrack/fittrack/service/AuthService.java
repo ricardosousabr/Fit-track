@@ -4,7 +4,7 @@ import com.fittrack.fittrack.domain.Role;
 import com.fittrack.fittrack.dto.request.LoginRequest;
 import com.fittrack.fittrack.dto.request.RegisterRequest;
 import com.fittrack.fittrack.dto.response.AuthResponse;
-import com.fittrack.fittrack.entity.Users;
+import com.fittrack.fittrack.entity.User;
 import com.fittrack.fittrack.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,17 +27,17 @@ public class AuthService {
 			throw  new ResponseStatusException(HttpStatus.CONFLICT, "Email already in use");
 		}
 		
-		Users users = new Users();
+		User user = new User();
 		
-		users.setUsername(request.username());
-		users.setEmail(request.email());
-		users.setPassword(passwordEncoder.encode(request.password()));
-		users.setRole(Role.STUDENT);
-		users.setActive(true);
+		user.setUsername(request.username());
+		user.setEmail(request.email());
+		user.setPassword(passwordEncoder.encode(request.password()));
+		user.setRole(Role.STUDENT);
+		user.setActive(true);
 
-		userRepository.save(users);
+		userRepository.save(user);
 		
-		String token = jwtService.generateToken(users);
+		String token = jwtService.generateToken(user);
 		
 		return new AuthResponse(token);
 		
@@ -48,7 +48,7 @@ public class AuthService {
 				new UsernamePasswordAuthenticationToken(request.email(), request.password())
 		);
 		
-		Users user = userRepository.findByEmail(request.email()).orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials"));
+		User user = userRepository.findByEmail(request.email()).orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials"));
 		
 		String token = jwtService.generateToken(user);
 		return new AuthResponse(token);
