@@ -1,9 +1,9 @@
-package com.fittrack.fittrack.controller;
+package com.fittrack.controller;
 
-import com.fittrack.fittrack.dto.request.ChangePasswordRequest;
-import com.fittrack.fittrack.dto.request.UpdateProfileRequest;
-import com.fittrack.fittrack.dto.response.UserResponse;
-import com.fittrack.fittrack.service.UserService;
+import com.fittrack.dto.request.ChangePasswordRequest;
+import com.fittrack.dto.request.UpdateProfileRequest;
+import com.fittrack.dto.response.UserResponse;
+import com.fittrack.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

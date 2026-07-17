@@ -1,7 +1,7 @@
-package com.fittrack.fittrack.mapper;
+package com.fittrack.mapper;
 
-import com.fittrack.fittrack.dto.response.UserResponse;
-import com.fittrack.fittrack.entity.User;
+import com.fittrack.dto.response.UserResponse;
+import com.fittrack.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

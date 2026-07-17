@@ -1,4 +1,4 @@
-package com.fittrack.fittrack.service;
+package com.fittrack.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

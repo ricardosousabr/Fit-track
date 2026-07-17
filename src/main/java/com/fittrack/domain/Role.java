@@ -1,4 +1,4 @@
-package com.fittrack.fittrack.domain;
+package com.fittrack.domain;
 
 public enum Role {
 	STUDENT,

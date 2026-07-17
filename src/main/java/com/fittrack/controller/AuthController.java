@@ -1,9 +1,9 @@
-package com.fittrack.fittrack.controller;
+package com.fittrack.controller;
 
-import com.fittrack.fittrack.dto.request.LoginRequest;
-import com.fittrack.fittrack.dto.request.RegisterRequest;
-import com.fittrack.fittrack.dto.response.AuthResponse;
-import com.fittrack.fittrack.service.AuthService;
+import com.fittrack.dto.request.LoginRequest;
+import com.fittrack.dto.request.RegisterRequest;
+import com.fittrack.dto.response.AuthResponse;
+import com.fittrack.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package com.fittrack.fittrack.repository;
+package com.fittrack.repository;
 
-import com.fittrack.fittrack.entity.User;
+import com.fittrack.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

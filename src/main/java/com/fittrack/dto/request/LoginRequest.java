@@ -1,4 +1,4 @@
-package com.fittrack.fittrack.dto.request;
+package com.fittrack.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

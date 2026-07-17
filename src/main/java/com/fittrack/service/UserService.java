@@ -1,11 +1,11 @@
-package com.fittrack.fittrack.service;
+package com.fittrack.service;
 
-import com.fittrack.fittrack.dto.request.ChangePasswordRequest;
-import com.fittrack.fittrack.dto.request.UpdateProfileRequest;
-import com.fittrack.fittrack.dto.response.UserResponse;
-import com.fittrack.fittrack.entity.User;
-import com.fittrack.fittrack.mapper.UserMapper;
-import com.fittrack.fittrack.repository.UserRepository;
+import com.fittrack.dto.request.ChangePasswordRequest;
+import com.fittrack.dto.request.UpdateProfileRequest;
+import com.fittrack.dto.response.UserResponse;
+import com.fittrack.entity.User;
+import com.fittrack.mapper.UserMapper;
+import com.fittrack.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,4 +1,4 @@
-package com.fittrack.fittrack.dto.response;
+package com.fittrack.dto.response;
 
 public record AuthResponse(
 		String token) {

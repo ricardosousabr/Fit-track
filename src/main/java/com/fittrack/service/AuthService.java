@@ -1,11 +1,11 @@
-package com.fittrack.fittrack.service;
+package com.fittrack.service;
 
-import com.fittrack.fittrack.domain.Role;
-import com.fittrack.fittrack.dto.request.LoginRequest;
-import com.fittrack.fittrack.dto.request.RegisterRequest;
-import com.fittrack.fittrack.dto.response.AuthResponse;
-import com.fittrack.fittrack.entity.User;
-import com.fittrack.fittrack.repository.UserRepository;
+import com.fittrack.domain.Role;
+import com.fittrack.dto.request.LoginRequest;
+import com.fittrack.dto.request.RegisterRequest;
+import com.fittrack.dto.response.AuthResponse;
+import com.fittrack.entity.User;
+import com.fittrack.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;

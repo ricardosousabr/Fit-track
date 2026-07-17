@@ -1,6 +1,6 @@
-package com.fittrack.fittrack.dto.response;
+package com.fittrack.dto.response;
 
-import com.fittrack.fittrack.domain.Role;
+import com.fittrack.domain.Role;
 
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
-package com.fittrack.fittrack.entity;
+package com.fittrack.entity;
 
-import com.fittrack.fittrack.domain.Role;
+import com.fittrack.domain.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

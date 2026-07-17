@@ -1,6 +1,6 @@
-package com.fittrack.fittrack.security;
+package com.fittrack.security;
 
-import com.fittrack.fittrack.repository.UserRepository;
+import com.fittrack.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
