@@ -30,15 +30,15 @@ public class WorkoutPlan {
 	private String description;
 	
 	@Column(nullable = false)
-	private LocalDate start_date;
+	private LocalDate startDate;
 	
 	@Column
-	private LocalDate end_date;
+	private LocalDate endDate;
 	
 	@Column(nullable = false)
 	private Boolean active;
 	
 	@CreationTimestamp
 	@Column(nullable = false, updatable = false)
-	private LocalDateTime created_at;
+	private LocalDateTime createdAt;
 }
