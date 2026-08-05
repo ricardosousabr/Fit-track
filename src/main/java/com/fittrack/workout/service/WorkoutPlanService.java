@@ -46,6 +46,7 @@ public class WorkoutPlanService {
 		workoutPlan.setUser(user);
 		workoutPlan.setStartDate(request.startDate());
 		workoutPlan.setEndDate(request.endDate());
+		workoutPlan.setActive(true);
 		
 		workoutPlanRepository.save(workoutPlan);
 		
