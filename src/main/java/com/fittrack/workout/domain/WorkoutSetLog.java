@@ -37,5 +37,5 @@ public class WorkoutSetLog {
 	private BigDecimal rpe;
 	
 	@Column
-	private boolean completed;
+	private Boolean completed;
 }
