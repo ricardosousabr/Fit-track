@@ -80,4 +80,18 @@ public class WorkoutLogService {
 		List<WorkoutSetLog> sets = workoutSetLogRepository.findByWorkoutLogId(workoutLog.getId());
 		return workoutLogMapper.toWorkoutLogResponse(workoutLog, sets);
 	}
+	
+	public List<WorkoutLogResponse> getWorkoutHistory(UUID planId) {
+		User user = getUserAuthenticated();
+		WorkoutPlan plan = workoutPlanRepository.findById(planId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plan not found"));
+		checkOwnership(plan, user);
+		
+		List<WorkoutLog> logs = workoutLogRepository.findByWorkoutPlanId(planId);
+		
+		return logs.stream().map(log -> {
+			List<WorkoutSetLog> sets = workoutSetLogRepository.findByWorkoutLogId(log.getId());
+			return workoutLogMapper.toWorkoutLogResponse(log, sets);
+		}).toList();
+		
+	}
 }
