@@ -1,6 +1,7 @@
 package com.fittrack.workout.controller;
 
 import com.fittrack.workout.domain.ExerciseCategory;
+import com.fittrack.workout.dto.ExerciseHistoryResponse;
 import com.fittrack.workout.dto.ExerciseRequest;
 import com.fittrack.workout.dto.ExerciseResponse;
 import com.fittrack.workout.service.ExerciseService;
@@ -35,6 +36,11 @@ public class ExerciseController {
 	@GetMapping("/category/{category}")
 	public List<ExerciseResponse> findCategory(@PathVariable ExerciseCategory category) {
 		return exerciseService.findByCategory(category);
+	}
+	
+	@GetMapping("/{id}/history")
+	public List<ExerciseHistoryResponse> findHistory(@PathVariable UUID id) {
+		return exerciseService.getExerciseHistory(id);
 	}
 	
 }

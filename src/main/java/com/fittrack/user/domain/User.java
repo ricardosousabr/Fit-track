@@ -44,7 +44,7 @@ public class User implements UserDetails {
 	private LocalDateTime createdAt;
 	
 	@UpdateTimestamp
-	@Column(nullable = false)
+	@Column(name = "updated_at", nullable = false)
 	private LocalDateTime updateAt;
 	
 	@Override
